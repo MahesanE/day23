@@ -18,7 +18,7 @@ public class OrderRepo {
     private final static String FIND_ORDERBYID_SQL = "select o.id as order_id, o.order_date, o.customer_id," +
     " od.quantity, od.product_id, " +
     "(od.quantity * od.unit_price* if(od.discount > 0, od.discount, 1)) as total_price, " +
-    " od.order_id, od.product_id, (od.quantity * p.standard_cost) as cost_price " +
+    "(od.quantity * p.standard_cost) as cost_price " +
     " from order_details as od " +
     " inner join products as p " +
     " on od.product_id = p.id " +
